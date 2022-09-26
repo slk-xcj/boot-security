@@ -17,10 +17,10 @@ public class SysLoginController {
     private SysLoginService loginService;
 
     @PostMapping(value = "/login")
-    public AjaxResult login(@RequestBody LoginFormVo loginForm) {
+    public AjaxResult login(LoginFormVo loginForm) {
         AjaxResult result = AjaxResult.success();
         // 生成token令牌
-        String token = loginService.login(loginForm.getUsername(), loginForm.getPassword(), loginForm.getUuid());
+        String token = loginService.login(loginForm.getUsername(), loginForm.getPassword());
         result.put(Constants.TOKEN, token);
         return result;
     }

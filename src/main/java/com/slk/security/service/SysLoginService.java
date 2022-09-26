@@ -20,7 +20,7 @@ public class SysLoginService {
     @Resource
     private TokenService tokenService;
 
-    public String login(String username, String password, String uuid) {
+    public String login(String username, String password) {
         // 用户验证
         Authentication authentication = null;
         try {

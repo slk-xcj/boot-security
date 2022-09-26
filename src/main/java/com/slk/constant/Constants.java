@@ -17,7 +17,7 @@ public class Constants {
     public static final String TOKEN_PREFIX = "Bearer ";
 
     /**
-     * 登录用户 redis key
+     * 登录用户 redis key，往Redis中存储的时候带冒号的，前面的部分就是命名空间后边的值作为命名空间中的键
      */
     public static final String LOGIN_TOKEN_KEY = "login_tokens:";
 }
