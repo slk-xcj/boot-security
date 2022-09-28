@@ -25,7 +25,6 @@ public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler {
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         LoginUser loginUser = tokenService.getLoginUser(request);
         if (loginUser != null) {
-            String userName = loginUser.getUserName();
             // 删除用户缓存记录
             tokenService.delLoginUser(loginUser.getToken());
         }
