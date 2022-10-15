@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -13,15 +12,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 
 import javax.annotation.Resource;
 import java.util.Collections;
-import java.util.stream.Collectors;
 
 // 进入SpringBoot2.7时代之后，WebSecurityConfigurerAdapter已经被定义为过时，之后实现需要使用SecurityFilterChain
 @Configuration
@@ -43,12 +39,6 @@ public class SecurityConfig {
      */
     @Resource
     private JwtAuthenticationTokenFilter authenticationTokenFilter;
-
-    /**
-     * 跨域过滤器
-     */
-    @Resource
-    private CorsFilter corsFilter;
 
     /**
      * 自定义用户认证逻辑
